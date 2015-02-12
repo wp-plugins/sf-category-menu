@@ -1,5 +1,5 @@
 === SF Category Menu ===
-Contributors: Studiofreya AS
+Contributors: Studiofreya
 Donate link: http://studiofreya.com/sf-category-menu
 Tags: child, pages, posts, categories, menu, treeview, tree, list
 Requires at least: 3.8
@@ -15,7 +15,8 @@ Plugin is based on jQuery Treeview and gives an easy Down Menu for WordPress cat
 [Plugin website](http://www.studiofreya.com/sf-category-menu/)
 
 = Features: =
-* Choose from 5 different styles, * Exclude categories
+* Choose from 5 different styles 
+* Exclude categories
 
 = Live demo: =
 [SF Textures](http://sftextures.com)
