@@ -14,27 +14,26 @@ Easy treeview menu for WordPress categories.
 Plugin is based on jQuery Treeview and gives an easy Down Menu for WordPress categories. It will display the current page/category and all child pages or categories. 
 [Plugin website](http://www.studiofreya.com/sf-category-menu/)
 
-**Features:**
-* Choose from 5 different styles
-* Exclude categories
+= Features: =
+* Choose from 5 different styles, * Exclude categories
 
-**Live demo:**
+= Live demo: =
 [SF Textures](http://sftextures.com)
 
 
 == Installation ==
-Upload the plugin files to the /wp-content/plugins/ directory
-Activate the plugin through the 'Plugins' menu in WordPress
-Use it as a Widget
+1. Upload the plugin files to the /wp-content/plugins/ directory
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Use it as a Widget
 
 == Frequently Asked Questions ==
 
 [Plugin page](http://studiofreya.com/sf-category-menu/)
 
 == Screenshots ==
-1. screenshot_admin.png Admin options.
-2. screenshot_plus.png Default style menu created with this plugin.
-3. screenshot_famfamfam.png Famfamfam style menu created with this plugin.
+1. Admin options.
+2. Default style menu created with this plugin.
+3. Famfamfam style menu created with this plugin.
 
 == ChangeLog ==
 
