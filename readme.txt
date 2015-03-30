@@ -1,7 +1,7 @@
 === SF Category Menu ===
 Contributors: Studiofreya
 Donate link: http://studiofreya.com/sf-category-menu
-Tags: child, pages, posts, categories, menu, treeview, tree, list
+Tags: child, pages, posts, categories, menu, treeview, tree, list, widget
 Requires at least: 3.8
 Tested up to: 3.8.1
 Stable tag: trunk
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Easy treeview menu for WordPress categories.
 
 == Description ==
-Plugin is based on jQuery Treeview and gives an easy Down Menu for WordPress categories. It will display the current page/category and all child pages or categories. 
+Plugin is based on jQuery Treeview Plugin and gives an easy Treeview Menu for WordPress categories. It will display the current page or category and all child pages.
 [Plugin website](http://www.studiofreya.com/sf-category-menu/)
 
 = Features: =
