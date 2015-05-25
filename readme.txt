@@ -38,10 +38,12 @@ Plugin is based on jQuery Treeview Plugin and gives an easy Treeview Menu for Wo
 
 == ChangeLog ==
 
+= 1.1 =
+* Minified CSS and JS!
+
 = 1.0 =
 * Initial release!
 
 == Upgrade Notice ==
 
-= 1.0 =
 No upgrade available.

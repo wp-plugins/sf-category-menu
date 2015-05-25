@@ -4,7 +4,7 @@
  * Plugin Name: SF Category Menu Widget
  * Plugin URI: http://studiofreya.com/sf-category-menu/
  * Description: Easy treeview menu for WordPress categories.
- * Version: 1.0
+ * Version: 1.1
  * Author: Studiofreya AS
  * Author URI: http://studiofreya.com
  * License: GPL3
@@ -212,8 +212,6 @@ class SFCategoryMenuWidget extends WP_Widget {
 function sf_category_menu_widget_register_widgets() {
 	register_widget( 'SFCategoryMenuWidget' );
 }
-
-// Hooks
 
 add_action( 'widgets_init', 'sf_category_menu_widget_register_widgets' );
 
