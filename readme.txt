@@ -19,7 +19,7 @@ Plugin is based on jQuery Treeview Plugin and gives an easy Treeview Menu for Wo
 * Exclude categories
 
 = Live demo: =
-[SF Textures](http://sftextures.com)
+[Photo website](http://sftextures.com)
 
 
 == Installation ==
