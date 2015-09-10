@@ -4,13 +4,13 @@
  * Plugin Name: SF Category Menu Widget
  * Plugin URI: http://studiofreya.com/sf-category-menu/
  * Description: Easy treeview menu for WordPress categories.
- * Version: 1.1
+ * Version: 1.2
  * Author: Studiofreya AS
  * Author URI: http://studiofreya.com
  * License: GPL3
  */
 
-function getPostCount($catid)
+function sf_getPostCount($catid)
 {
 $args = array(
 	'posts_per_page'   => -1,
@@ -65,7 +65,7 @@ function getSubCategoryPostCount( $catid )
 	return $num;
 }
 
-function doCategories( $categories, $select_style, $parent = 0 )
+function sf_doCategories( $categories, $select_style, $parent = 0 )
 {
 	$num = count( $categories );
 	
@@ -86,10 +86,10 @@ function doCategories( $categories, $select_style, $parent = 0 )
 	foreach($categories as $category) 
 	{		
 		$ID = $category->cat_ID;
-		$subcatcount = getPostCount($ID);
+		$subcatcount = sf_getPostCount($ID);
 
 		$category_link = esc_url( get_category_link( $category->term_id ) );
-		$link_title = sprintf( __( "View all posts in %s (%s)" ), $category->name, $subcatcount );
+		$link_title = sprintf( __( 'View all posts in %s (%s)', 'sf-category' ), $category->name, $subcatcount );
 		$catname = $category->name;
 		
 		echo "
@@ -110,7 +110,7 @@ function doCategories( $categories, $select_style, $parent = 0 )
 		
 		$childcats = get_categories( $childargs );
 		
-		doCategories( $childcats, $select_style, $ID );
+		sf_doCategories( $childcats, $select_style, $ID );
 		
 		echo "
 		</li>
@@ -151,7 +151,7 @@ class SFCategoryMenuWidget extends WP_Widget {
 		
 		echo '<div class="dynamic_sidemenu">';
 		
-		doCategories( $categories, $select_style );
+		sf_doCategories( $categories, $select_style );
 		
 		echo '</div>';
 		
@@ -190,7 +190,7 @@ class SFCategoryMenuWidget extends WP_Widget {
 		?>
 	
 		<p>
-		<label for="<?php echo $this->get_field_id('select_style'); ?>"><?php _e('Style:', 'wp_widget_plugin'); ?></label>
+		<label for="<?php echo $this->get_field_id('select_style'); ?>"><?php _e('Style:', 'sf-category'); ?></label>
 		<select name="<?php echo $this->get_field_name('select_style'); ?>" id="<?php echo $this->get_field_id('select_style'); ?>">
 		<?php
 		$options = array('treeview', 'treeview-red', 'treeview-black', 'treeview-grey', 'treeview-famfamfam');
@@ -202,7 +202,7 @@ class SFCategoryMenuWidget extends WP_Widget {
 		</p>
 		
 		<p>
-		<label for="<?php echo $this->get_field_id('exclude_cat'); ?>"><?php _e('Exclude ID:', 'wp_widget_plugin'); ?></label>
+		<label for="<?php echo $this->get_field_id('exclude_cat'); ?>"><?php _e('Exclude ID:', 'sf-category'); ?></label>
 		<input id="<?php echo $this->get_field_id('exclude_cat'); ?>" name="<?php echo $this->get_field_name('exclude_cat'); ?>" type="text" value="<?php echo $exclude_cat; ?>" />
 		</p>
 		<?php		
@@ -215,7 +215,7 @@ function sf_category_menu_widget_register_widgets() {
 
 add_action( 'widgets_init', 'sf_category_menu_widget_register_widgets' );
 
-function load_jquery() {
+function sf_category_load() {
     wp_enqueue_script( 'jquery' );
 	
 	wp_enqueue_script('treeview-cookie', plugins_url() . '/sf-category-menu/tree-view/lib/jquery.cookie.js', 'jquery');
@@ -223,7 +223,12 @@ function load_jquery() {
 	wp_enqueue_style( 'treeview-style', plugins_url() . '/sf-category-menu/tree-view/jquery.treeview.css');
 }
 
-add_action( 'wp_enqueue_scripts', 'load_jquery' );
+add_action( 'wp_enqueue_scripts', 'sf_category_load' );
+
+function sf_category_init() {
+	load_textdomain( 'sf-category', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
+}
+add_action( 'plugins_loaded', 'sf_category_init' );
 
 
 ?>
