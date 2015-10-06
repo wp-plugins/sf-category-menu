@@ -3,7 +3,7 @@ Contributors: Studiofreya
 Donate link: http://studiofreya.com/sf-category-menu
 Tags: child, pages, posts, categories, menu, treeview, tree, list, widget
 Requires at least: 3.8
-Tested up to: 4.2.2
+Tested up to: 4.3.0
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,6 +17,7 @@ Plugin is based on jQuery Treeview Plugin and gives an easy Treeview Menu for Wo
 = Features: =
 * Choose from 5 different styles 
 * Exclude categories
+* Translation ready
 
 = Live demo: =
 [Photo website](http://sftextures.com)
@@ -26,6 +27,8 @@ Plugin is based on jQuery Treeview Plugin and gives an easy Treeview Menu for Wo
 1. Upload the plugin files to the /wp-content/plugins/ directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Use it as a Widget
+
+See custom [Styling examples](http://studiofreya.com/wordpress-plugins/sf-category-menu/styling/). 
 
 == Frequently Asked Questions ==
 
@@ -38,11 +41,7 @@ Plugin is based on jQuery Treeview Plugin and gives an easy Treeview Menu for Wo
 
 == ChangeLog ==
 
-= 1.1 =
-* Minified CSS and JS!
-
-= 1.0 =
-* Initial release!
+SF Category Menu [change log](http://studiofreya.com/wordpress-plugins/sf-category-menu/changelog/).
 
 == Upgrade Notice ==
 
