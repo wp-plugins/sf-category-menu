@@ -4,7 +4,7 @@
  * Plugin Name: SF Category Menu Widget
  * Plugin URI: http://studiofreya.com/sf-category-menu/
  * Description: Easy treeview menu for WordPress categories.
- * Version: 1.2
+ * Version: 1.3
  * Author: Studiofreya AS
  * Author URI: http://studiofreya.com
  * License: GPL3
@@ -35,36 +35,6 @@ $args = array(
 	return $num;
 }
 
-function getSubCategoryPostCount( $catid )
-{
-	$num = 0;
-
-    $args = array(
-        'type'                     => 'post',
-        'parent'                   => "$catid",
-        'orderby'                  => 'name',
-        'order'                    => 'ASC',
-        'hide_empty'               => 1,
-        'hierarchical'             => 0,
-        'exclude'                  => '',
-        'include'                  => '',
-        'number'                   => '',
-        'taxonomy'                 => 'category',
-        'pad_counts'               => true
-    );
-
-    $categories = get_categories( $args );
-
-	foreach($categories as $cat)
-	{
-		$num += $cat->count;
-
-		$num += getSubCategoryPostCount($cat->cat_ID);
-	}
-
-	return $num;
-}
-
 function sf_doCategories( $categories, $select_style, $parent = 0 )
 {
 	$num = count( $categories );
@@ -87,6 +57,10 @@ function sf_doCategories( $categories, $select_style, $parent = 0 )
 	{		
 		$ID = $category->cat_ID;
 		$subcatcount = sf_getPostCount($ID);
+		
+		if($subcatcount < 1) {
+			continue;
+		}
 
 		$category_link = esc_url( get_category_link( $category->term_id ) );
 		$link_title = sprintf( __( 'View all posts in %s (%s)', 'sf-category' ), $category->name, $subcatcount );
@@ -101,9 +75,15 @@ function sf_doCategories( $categories, $select_style, $parent = 0 )
 			</a>
 		";
 		
+		$hide_empty = 1;
+		
+		if ( $parent == 1 ) {
+			$hide_empty = 0;
+		}
+		
 		$childargs = array(
 			'parent'            => $ID,
-			'hide_empty'        => 1,
+			'hide_empty'        => $hide_empty,
 			'hierarchical'      => 0,
 			'pad_counts'        => true
 		);
@@ -137,7 +117,7 @@ class SFCategoryMenuWidget extends WP_Widget {
 			'parent'                   => '0',
 			'orderby'                  => 'name',
 			'order'                    => 'ASC',
-			'hide_empty'               => 1,
+			'hide_empty'               => 0,
 			'hierarchical'             => 0,
 			'exclude'                  => $exclude_categories,
 			'include'                  => '',

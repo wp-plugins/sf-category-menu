@@ -18,6 +18,7 @@ Plugin is based on jQuery Treeview Plugin and gives an easy Treeview Menu for Wo
 * Choose from 5 different styles 
 * Exclude categories
 * Translation ready
+* Doesn't show empty categories
 
 = Live demo: =
 [Photo website](http://sftextures.com)
